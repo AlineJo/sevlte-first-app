@@ -1,57 +1,73 @@
 <script>
-    import Paragraph from "../components/paragraph.svelte";
-    import Button from "../components/Button.svelte";
+    import Navbar from "../lib/components/Navbar.svelte";
+    import Paragraph from "../lib/components/Paragraph.svelte";
+    import Button from "../lib/components/Button.svelte";
+    import Info from "../lib/components/Info.svelte";
 
-   
+    let count = 0;
+    //keep doubled variable in sync with count
+    $: doubled = count * 2;
 
-    
- let count = 0;
-//keep doubled variable in sync with count
-$: doubled = count * 2;
-
-$: {
-    console.log("the count is " + count);
-    console.log("the doubled is " + doubled);
-    if (count >= 100) {
-        alert("count is dangerously high!");
+    $: {
+        console.log("the count is " + count);
+        console.log("the doubled is " + doubled);
+        if (count >= 100) {
+            alert("count is dangerously high!");
+        }
     }
-}
 
-function incrementCount() {
-    // event handler code goes here
-    count += 5;
-}
+    function incrementCount() {
+        // event handler code goes here
+        count += 5;
+    }
 
-let numbers = [1, 2, 3, 4];
+    let numbers = [1, 2, 3, 4];
 
-function addNumber() {
-    numbers = [...numbers, numbers.length + 1];
-}
+    function addNumber() {
+        numbers = [...numbers, numbers.length + 1];
+    }
 
-$: sum = numbers.reduce((t, n) => t + n, 0);
+    $: sum = numbers.reduce((t, n) => t + n, 0);
 
-$: carObj = { totalCars: 1 };
+    let carObj = { totalCars: 1 };
 
-function addInfoToCarObj() {
-    carObj.carName = "test-car";
-    carObj.totalCars += 1;
-}
+    function addInfoToCarObj() {
+        carObj.carName = "test-car";
+        carObj.totalCars += 1;
+    }
 
-$: obj = { total: 1 };
+    let obj = { total: 1 };
 
- function quox(number) {
-    obj.total += number;
-}
+    function quox(number) {
+        obj.total += number;
+    }
 
+    function handleClick() {
+        alert("meaw");
+    }
 
-function handleClick() {
-    alert("meaw");
-}
-let childProps = { on: { click: handleClick } };
+    //let childProps = { on: { click: handleClick } };
 
+    const pkg = {
+        name: "svelte",
+        version: 3,
+        speed: "blazing",
+        website: "https://svelte.dev",
+    };
+
+    // let screens = {
+    //     logic : "/logic",
+    // };
+
+    //    function navigateTo(selectedScreen){
+    //    navigate(selectedScreen.logic);
+    //    alert(selectedScreen)
+    //    }
 
 
 </script>
+
+<Navbar  screen_home ="/" />
 
 <div id="mainContainer">
     <h1 class="display-1 mb-5">Welcome to your library project</h1>
@@ -108,12 +124,18 @@ let childProps = { on: { click: handleClick } };
     />
 
     <Paragraph cssClasses="mt-5 display-5" text="--------" />
+    <Paragraph cssClasses="display-5" />
 
-    <Button
-        on:click={handleClick}
-        cssClasses="mt-5 btn-primary"
-        text="My Button"
-    />
+    <Button on:click={handleClick} cssClasses="btn-primary" text="My Button" />
+
+    <Info cssClasses="mt-5" {...pkg} />
+   
+   
+    <Paragraph cssClasses="mt-5 display-5" text="--------" />
+    <!-- <Button on:click={() => {navigateTo(screens.logic)}} cssClasses="mt-5 btn-primary" text="next"  /> -->
+
+
+   
 </div>
 
 <style>

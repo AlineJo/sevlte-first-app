@@ -1,7 +1,6 @@
 <script>
-    export let text;
+    export let text = "No text props provided~!";
     export let cssClasses;
-
     let defaultCssClasses = "btn btn-lg text-uppercase display-6 "+cssClasses;
     
 
