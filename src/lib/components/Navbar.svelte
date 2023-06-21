@@ -2,11 +2,14 @@
     export let screen_home = "/home";
     let screen_logic = "/logic";
     let screen_fetch = "/fetch";
-
+    let screen_dispatch = "/dispatcher";
+    
     let navs = [
         { text: "Home", link: screen_home },
         { text: "logic", link: screen_logic },
         { text: "fetch", link: screen_fetch },
+        { text: "dispatcher", link: screen_dispatch },
+
     ];
 </script>
 

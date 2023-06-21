@@ -25,7 +25,7 @@
 <Navbar screen_home="../" />
 
 <div id="mainContainer">
-    <h1 class="display-1 mb-5">Welcome to your library project</h1>
+    <h1 class="display-1 mb-5">Logic Examples</h1>
 
     <Paragraph
         cssClasses="display-6"

@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from "svelte";
     import Navbar from "../../lib/components/Navbar.svelte";
     import Paragraph from "../../lib/components/Paragraph.svelte";
     import Button from "../../lib/components/Button.svelte";
@@ -8,8 +9,8 @@
         headers: { "Cache-Control": "no-cache" },
     };
 
-    let API_URL_GET_RANDOM_NUMBER =
-        "http://localhost/expprojects/PDO-APIs/random-number.php";
+    let API_URL_GET_RANDOM_NUMBER = 
+    "http://localhost/expprojects/PDO-APIs/random-number.php";
 
     // async function fetchRandomNumberNew() {
     //     const response = await fetch(
@@ -34,7 +35,10 @@
         }
     }
 
-    let jsonResponse = fetchRandomNumberOld();
+    let jsonResponse;
+    onMount(async () => {
+        jsonResponse = fetchRandomNumberOld();
+    });
 
     function getRandomNumber() {
         jsonResponse = fetchRandomNumberOld();
@@ -44,7 +48,7 @@
 <Navbar screen_home="../" />
 
 <div id="mainContainer">
-    <h1 class="display-1 mb-5">Welcome to your library project</h1>
+    <h1 class="display-1 mb-5">Fetch Example</h1>
 
     <Paragraph
         cssClasses="display-6"
@@ -54,14 +58,20 @@
 
     {#await jsonResponse}
         <Paragraph cssClasses="mt-5 display-6" text="...waiting" />
-    {:then number}
-        {#if number == "Faild to genrate a number!"}
-        <Paragraph cssClasses="mt-5 display-6 text-danger" text={number} />
+    {:then data}
+        {#if data == "Faild to genrate a number!"}
+            <Paragraph cssClasses="mt-5 display-6 text-danger" text={data} />
         {:else}
-        <Paragraph cssClasses="mt-5 display-6" text="The number is {number}" />
+            <Paragraph
+                cssClasses="mt-5 display-6"
+                text="The number is {data}"
+            />
         {/if}
     {:catch error}
-        <Paragraph cssClasses="mt-5 display-6 text-danger" text={error.message} />
+        <Paragraph
+            cssClasses="mt-5 display-6 text-danger"
+            text={error+ "/"+ error.message}
+        />
     {/await}
 
     <Button
