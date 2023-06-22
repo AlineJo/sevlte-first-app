@@ -70,7 +70,7 @@
     {:catch error}
         <Paragraph
             cssClasses="mt-5 display-6 text-danger"
-            text={error+ "/"+ error.message}
+            text={error.message}
         />
     {/await}
 

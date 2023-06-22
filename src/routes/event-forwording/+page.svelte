@@ -1,15 +1,16 @@
 <script>
+    import Outer from "$lib/components/Outer.svelte";
     import Navbar from "../../lib/components/Navbar.svelte";
     import Paragraph from "../../lib/components/Paragraph.svelte";
     import ToggleButton from "../../lib/components/ToggleButton.svelte";
 
-    let text = "active";
+    let text = "blue";
 
     function onStatusChange(event) {
         if (event.detail.status) {
-            text = "active";
+            text = "blue";
         } else {
-            text = "inactive";
+            text = "gray";
         }
     }
 </script>
@@ -17,7 +18,7 @@
 <Navbar screen_home="../" />
 
 <div id="mainContainer">
-    <h1 class="display-1 mb-5">Dispatcher Example</h1>
+    <h1 class="display-1 mb-5">Event-Forwording Example</h1>
 
     <Paragraph
         cssClasses="display-6"
@@ -26,7 +27,7 @@
     />
 
     <Paragraph text={text} cssClasses="display-1"/>
-    <ToggleButton text={"my Toggle Button"} on:onToggle={onStatusChange} />
+    <Outer text={"Toggle Color"} on:onToggle={onStatusChange} />
 </div>
 
 <style>

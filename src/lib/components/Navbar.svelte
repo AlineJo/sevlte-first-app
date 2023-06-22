@@ -3,12 +3,14 @@
     let screen_logic = "/logic";
     let screen_fetch = "/fetch";
     let screen_dispatch = "/dispatcher";
+    let screen_event_forwording = "/event-forwording";
     
     let navs = [
         { text: "Home", link: screen_home },
         { text: "logic", link: screen_logic },
         { text: "fetch", link: screen_fetch },
         { text: "dispatcher", link: screen_dispatch },
+        { text: "event forwording", link: screen_event_forwording },
 
     ];
 </script>
