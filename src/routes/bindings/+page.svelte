@@ -50,6 +50,8 @@
         "Horror",
     ];
     let selectedGenra;
+
+    let fontSize = 24;
 </script>
 
 <Navbar screen_home="../" />
@@ -67,6 +69,17 @@
     <!-- <input bind:value={inputFullName}/> -->
 
     <div class="container">
+        <div class="row justify-content-center">
+            <Paragraph
+                {fontSize}
+                cssClasses="mt-3 text-primary display-6"
+                text={fontSize}
+            />
+            <div class="inputsContainer col">
+                <input type="range" bind:value={fontSize} min="24" max="124" />
+            </div>
+        </div>
+
         <div class="row justify-content-center">
             <!-- <Input id="inputFullName" placeHolder="Full Name"  bind:value={inputFullName} /> -->
             <div class="inputsContainer col">
@@ -211,35 +224,6 @@
             </div>
         </div>
 
-        <div class="d-flex flex-row mb-3">
-            <div class="shadow p-3 my-3">
-                <Paragraph cssClasses="display-6" text="Checkbox Array Group" />
-                {#each extras as extra}
-                    <div class="form-check">
-                        <input
-                            class="form-check-input"
-                            type="checkbox"
-                            bind:group={selectedExtras}
-                            value={extra}
-                        />
-                        <label class="form-check-label" for="flexCheckDefault">
-                            {extra}
-                        </label>
-                    </div>
-                {/each}
-
-                <Paragraph
-                    cssClasses="mt-5"
-                    text={displaySelectedExtras(selectedExtras)}
-                />
-                <Button
-                    cssClasses="btn-success mt-2"
-                    text="alert selected"
-                    on:click={alertSelectedExtras}
-                />
-            </div>
-        </div>
-
         <div class="row justify-content-center">
             <Paragraph
                 cssClasses="text-primary display-6"
@@ -279,6 +263,35 @@
             </div>
         </div>
 
+        <div class="mt-5 d-flex flex-row mb-3">
+            <div class="shadow p-3 my-3">
+                <Paragraph cssClasses="display-6" text="Checkbox Array Group" />
+                {#each extras as extra}
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            bind:group={selectedExtras}
+                            value={extra}
+                        />
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {extra}
+                        </label>
+                    </div>
+                {/each}
+
+                <Paragraph
+                    cssClasses="mt-5"
+                    text={displaySelectedExtras(selectedExtras)}
+                />
+                <Button
+                    cssClasses="btn-success mt-2"
+                    text="alert selected"
+                    on:click={alertSelectedExtras}
+                />
+            </div>
+        </div>
+
         <div class="row justify-content-center">
             <Paragraph
                 cssClasses="mt-3 text-primary display-6"
@@ -287,7 +300,7 @@
 
             <div class="inputsContainer col">
                 <select
-                    class="form-select form-select-lg mb-3"
+                    class="es form-select form-select-lg mb-3"
                     aria-label=".form-select-lg example"
                     multiple
                     bind:value={selectedExtras}
@@ -307,6 +320,10 @@
         /* align-items: center; */
         text-align: center;
         background-color: bisque;
+    }
+
+    .es {
+        height: 225px;
     }
 
     .inputsContainer {

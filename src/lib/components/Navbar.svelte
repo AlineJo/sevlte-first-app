@@ -5,6 +5,7 @@
     let screen_dispatch = "/dispatcher";
     let screen_event_forwording = "/event-forwording";
     let screen_bindings = "/bindings";
+    let screen_binding_each = "/binding-each-block";
     
     let navs = [
         { text: "Home", link: screen_home },
@@ -13,6 +14,7 @@
         { text: "dispatcher", link: screen_dispatch },
         { text: "event forwording", link: screen_event_forwording },
         { text: "bindings", link: screen_bindings },
+        { text: "binding each", link: screen_binding_each },
 
     ];
 </script>
