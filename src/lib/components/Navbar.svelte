@@ -7,6 +7,7 @@
     let screen_bindings = "/bindings";
     let screen_binding_each = "/binding-each-block";
     let screen_this_bindings = "/this-binding";
+    let screen_lifecycle = "/lifecycle";
 
     
     let navs = [
@@ -18,6 +19,7 @@
         { text: "bindings", link: screen_bindings },
         { text: "binding each", link: screen_binding_each },
         { text: "this-binding", link: screen_this_bindings },
+        { text: "lifecycle", link: screen_lifecycle },
 
     ];
 </script>

@@ -1,7 +1,7 @@
 <script>
     let input;
     export let id;
-    const type = "text";
+    // const type = "text";
     export let value = "";
     export let placeHolder = "No placeHolder props provided~!";
     export let cssClasses;
