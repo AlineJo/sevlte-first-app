@@ -1,22 +1,30 @@
 <script>
+    let input;
     export let id;
-    export let type = "text";
-    export let value;
+    const type = "text";
+    export let value = "";
     export let placeHolder = "No placeHolder props provided~!";
     export let cssClasses;
     let defaultCssClasses = "form-control " + cssClasses;
+
+    export function getValue() {
+        return value;
+    }
+
 </script>
 
 <div class="maxWidth">
     <div class="form-floating">
-        {#if value == null}
-            <input
-                {id}
-                {type}
-                class={defaultCssClasses}
-                placeholder={placeHolder}
-            />
-        {:else}
+        <!-- {#if value == null} -->
+        <input
+            {id}
+            type="text"
+            class={defaultCssClasses}
+            placeholder={placeHolder}
+            bind:value
+            bind:this={input}
+        />
+        <!-- {:else}
             <input
                 {id}
                 type="text"
@@ -24,7 +32,7 @@
                 placeholder={placeHolder}
                 bind:value
             />
-        {/if}
+        {/if} -->
 
         <label for="floatingInput">{placeHolder}</label>
     </div>

@@ -6,6 +6,8 @@
     let screen_event_forwording = "/event-forwording";
     let screen_bindings = "/bindings";
     let screen_binding_each = "/binding-each-block";
+    let screen_this_bindings = "/this-binding";
+
     
     let navs = [
         { text: "Home", link: screen_home },
@@ -15,6 +17,7 @@
         { text: "event forwording", link: screen_event_forwording },
         { text: "bindings", link: screen_bindings },
         { text: "binding each", link: screen_binding_each },
+        { text: "this-binding", link: screen_this_bindings },
 
     ];
 </script>
